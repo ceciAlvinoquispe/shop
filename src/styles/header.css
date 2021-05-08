@@ -1,0 +1,178 @@
+header {
+  background-color: #FFF;
+  box-shadow: 2px 2px 20px rgba(0,0,0,0.1);
+  z-index: 9999;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+header hr {
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.name-page {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 20px;
+  text-transform: uppercase;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.menu {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.logo {
+  display: block;
+  width: 50px;
+  margin: 0;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+}
+
+.breadcrumb {
+  flex: 1;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.breadcrumb a {
+  color: #666;
+  margin: 0 20px;
+  text-decoration: none;
+}
+
+.shopping {
+  justify-self: flex-end;
+  position: relative;
+  margin-right: 15px;
+}
+
+.shopping img {
+  width: 26px;
+}
+
+.shopping-counter {
+  background-color: red;
+  border-radius: 20px;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  height: 24px;
+  width: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Shopping detail */
+.shopping-detail {
+  /* display: none; */
+  border: 1px solid #ccc;
+  background-color: #FFF;
+  border-radius: 8px;
+  box-shadow: 5px -5px 10px rgba(0,0,0,0.15);
+  padding: 20px;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  min-width: 300px;
+  
+  max-width: 600px;
+  width: 100%;
+  z-index: 9999;
+}
+
+.shopping-detail.hidden {
+  display: none;
+}
+
+.shopping-detail.show {
+  display: block;
+}
+
+.shopping-detail::before {
+  content: '';
+  border-top: 0px solid transparent;
+  border-bottom: 20px solid #fff;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  position: absolute;
+  top: -15px;
+  right: 5px;
+}
+
+.shopping-detail-title {
+  border-bottom: 1px solid #ccc;
+  color: #666;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.icon-close {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+}
+
+.list {
+  background-color: #FFF;
+  list-style-type: none;
+  margin: 10px 0;
+  max-height: 300px;
+  overflow: auto;
+  width: 100%;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item p,
+.list-else {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.list-item p:first-child {
+  flex: 1;
+}
+
+.total {
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: right;
+  padding: 10px 10px 0 0;
+}
+
+.total span {
+  margin-right: 10px;
+}

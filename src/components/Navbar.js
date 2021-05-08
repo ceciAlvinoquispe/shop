@@ -7,45 +7,54 @@ import IconClose from '../images/icon-close.svg';
 
 const {useContext, useState} = React;
 
-const Header = () => {
+const Navbar = () => {
   
   const { cardProducts } = useContext(CardContext);
 
 	const [isVisible, setState] = useState(false);
 
   return (
-		<header>
-			<div className="name-page">La Tiendita</div>
-			<hr/>
+		<nav>
 			<div className="container">
 				<div className="menu">
-          <Link to="/" className="logo">
+          <Link to="/" className="menu-logo">
 						<img src={Logo} alt="logo de tienda"/>
 					</Link>
 
-					<div className="breadcrumb">
+					<div className="menu-breadcrumb">
 						<Link to="/">Productos</Link>
+						
+						<Link to="/">Detalle</Link>
 					</div>
 
-					<div className="shopping menu-shop cart-shop" onMouseEnter={() => setState(true)}>
-						<img src={IconShopping} alt="icono de compra"></img>
-						<span className="shopping-counter">{ cardProducts.length}</span>
+
+					<div className="menu-shop cart-shop"
+						onMouseEnter={() => setState(true)}>
+						<span>Ver carrito</span>
+						<div className="menu-shop-icon">
+              <img src={IconShopping} alt="icono de compra"></img>
+							<span className="menu-shop-counter">{ cardProducts.length}</span>
+						</div>
 					</div>
+
 				</div>
-
-				<div className={`shopping-detail ${ isVisible ? "show" : "hidden"}`}>
-					<h4 className="shopping-detail-title">Mi lista de compras:</h4>
-					<img className="icon-close" src={IconClose} alt="icono cerrar" onClick={() => setState(false)}/>
+				<div className={`shopping ${ isVisible ? "show" : "hidden"}`}>
+					<h4>Mi lista de compras:</h4>
+					<img className="icon-close"
+						src={IconClose} 
+						alt="icono cerrar"
+						onClick={() => setState(false)}
+						/>
 					{cardProducts.length === 0 ? (
 						<p className="list-else">Aún no seleccionaste algun producto</p>
 					) : (
 						<ul className="list">
 							{cardProducts.map((item, idx)=>{
 								return(
-									<li key={idx} className="list-item">
-										<p>{item.title}</p>
-										<p>s/ {item.price}</p>
-									</li>
+								<li key={idx} className="list-item">
+									<p>{item.title}</p>
+									<p>{item.price}</p>
+								</li>
 								)
 							})}
 						</ul>
@@ -53,15 +62,15 @@ const Header = () => {
 					
 					<div className="total">
 						<span>Total:</span>
-						s/ {cardProducts.reduce((obj, data) => {
-							obj += data.price;
-							return obj;
+						{cardProducts.reduce((obj, data) => {
+							obj += data.price; return obj;
 						}, 0)}
 					</div>
 				</div>
 			</div>
-		</header>
+		</nav>
   );
 };
 
-export default Header;
+
+export default Navbar;

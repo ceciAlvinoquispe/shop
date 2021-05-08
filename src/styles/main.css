@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('./header.css');
 @import url('./card.css');
+@import url('./product.css');
 
 /* Principales */
 * {
@@ -15,7 +16,7 @@ body {
   color: #666;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
-  line-height: 1.5;
+  line-height: 1;
 	position: relative;
 }
 
@@ -113,4 +114,30 @@ section {
 
 .col--12 {
 	width: 100%
+}
+/*
+* Responsive general
+*/
+@media only screen and (max-width: 40em) {
+	section {
+		padding: 30px 0;
+	}
+	.container {
+		max-width: 85%;
+	}
+
+	.col--1,
+	.col--2,
+	.col--3,
+	.col--4,
+	.col--5,
+	.col--6,
+	.col--7,
+	.col--8,
+	.col--9,
+	.col--10,
+	.col--11,
+	.col--12 {
+		width: 100%;
+	}
 }

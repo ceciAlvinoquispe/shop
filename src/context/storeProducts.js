@@ -1,12 +1,10 @@
 import React from 'react'
 
-const CartContext = React.createContext({
-  cartProducts: [],
-  updateCartProducts: (id) => null
+const CardContext = React.createContext({
+  cardProducts: [],
+  updatecardProducts: (id) => null
 })
 
-console.log('contex', CartContext);
+export const CardProvider = CardContext.Provider;
 
-export const CartProvider = CartContext.Provider;
-
-export default CartContext
+export default CardContext
