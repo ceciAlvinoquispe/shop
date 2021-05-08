@@ -49,9 +49,16 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #eee;
+  color: #666;
   cursor: pointer;
+  display: flex;
+  align-items: center;
   font-size: 14px;
   padding: 8px 40px;
+}
+
+.detail-button img {
+  margin-left: 10px;
 }
 
 /*

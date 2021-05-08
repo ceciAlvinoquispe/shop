@@ -1,21 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CardContext from '../context/storeProducts';
+import IconPlus from '../images/icon-plus.svg';
+import IconMinus from '../images/icon-minus.svg';
 
-const {useContext} = React;
+const {useContext, useState} = React;
 
 const Card = (props) => {
+	const [addProduct, setAddProduct] = useState(false);
   const {product} = props;
   const { cardProducts, updatecardProducts } = useContext(CardContext);
-
-  const removeCartIcon = "➖"
-  const addCardIcon = "➕"
-
-  const labelButton =  cardProducts.includes(product) ? `Quitar ${removeCartIcon}` : `Agregar ${addCardIcon}`
 
   const addCard = (e) =>{
     e.preventDefault();
     updatecardProducts(product);
+		console.log('card -----', cardProducts);
+    cardProducts.includes(product) ? setAddProduct(false) : setAddProduct(true)
   }
 
   return(
@@ -29,9 +29,17 @@ const Card = (props) => {
         <div className="card-price">
           <p>S/ {product.price}</p>
 
-          <button className="card-button" onClick={addCard}>
-            <div className="product-favorite">{labelButton}</div>
-          </button> 
+          {addProduct ? (
+            <button className="detail-button" onClick={addCard}>
+              Quitar
+              <img src={IconMinus} alt="icono de compra"/>
+            </button>
+            ) : (
+              <button className="detail-button" onClick={addCard}>
+                Agregar
+                <img src={IconPlus} alt="icono de compra"/>
+              </button>
+            )}
         </div>
 
       </div>

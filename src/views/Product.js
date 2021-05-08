@@ -4,12 +4,15 @@ import { useParams } from "react-router";
 import CardContext from '../context/storeProducts';
 import { Link } from 'react-router-dom';
 import IconArrowLeft from '../images/icon-arrow-left.svg';
+import IconPlus from '../images/icon-plus.svg';
+import IconMinus from '../images/icon-minus.svg';
 
 const { useState, useEffect, useContext } = React;
 
-function ProductSingle (props) {
+function ProductSingle () {
 	const { cardProducts, updatecardProducts } = useContext(CardContext);
 	const [single, setSingle] = useState([]);
+	const [addProduct, setAddProduct] = useState(false);
 	const [loading, setLoading] = useState(true);
 
 	const { id } = useParams();
@@ -18,23 +21,36 @@ function ProductSingle (props) {
     try{
       setLoading(true)
       const data = await getProductSingle(id);
+			console.log('lista -----', typeof id);
+			
+			// cardProducts.map((data, i) => {
+				
+			// 	console.log('lista -----', id);
+			// 	console.log('lista -----', data.id);
+				
+			// 	if (data.id == id) {
+			// 		setAddProduct(true);
+			// 		console.log('siiii-----', data);
+			// 	} else {
+			// 		setAddProduct(false) 
+			// 	}
+			// });
+
       setSingle(data)
       setLoading(false)
     } catch(err) {}
   }
 	
 	useEffect(()=>{
-    fetchSingle(id)
+    fetchSingle(id);
   },[id])
-
-  const removeCartIcon = "➖"
-  const addCardIcon = "➕"
-
-  const labelButton =  cardProducts.includes(single) ? `Quitar ${removeCartIcon}` : `Agregar ${addCardIcon}`
 
   const addCard = (e) =>{
     e.preventDefault();
     updatecardProducts(single);
+
+		cardProducts.includes(single) ? setAddProduct(false) : setAddProduct(true)
+
   }
 	
 	return (
@@ -75,9 +91,17 @@ function ProductSingle (props) {
 							</div>
 							<br/>
 
-							<button className="detail-button" onClick={addCard}>
-								<div className="product-favorite">{labelButton}</div>
-							</button> 
+							{addProduct ? (
+								<button className="detail-button" onClick={addCard}>
+									Quitar
+									<img src={IconMinus} alt="icono de compra"/>
+								</button>
+								) : (
+									<button className="detail-button" onClick={addCard}>
+										Agregar
+										<img src={IconPlus} alt="icono de compra"/>
+									</button>
+								)}
 						</div>
 					</div>
 				)}
