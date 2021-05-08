@@ -21,20 +21,6 @@ function ProductSingle () {
     try{
       setLoading(true)
       const data = await getProductSingle(id);
-			console.log('lista -----', typeof id);
-			
-			// cardProducts.map((data, i) => {
-				
-			// 	console.log('lista -----', id);
-			// 	console.log('lista -----', data.id);
-				
-			// 	if (data.id == id) {
-			// 		setAddProduct(true);
-			// 		console.log('siiii-----', data);
-			// 	} else {
-			// 		setAddProduct(false) 
-			// 	}
-			// });
 
       setSingle(data)
       setLoading(false)

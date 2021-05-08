@@ -14,7 +14,6 @@ const Card = (props) => {
   const addCard = (e) =>{
     e.preventDefault();
     updatecardProducts(product);
-		console.log('card -----', cardProducts);
     cardProducts.includes(product) ? setAddProduct(false) : setAddProduct(true)
   }
 
