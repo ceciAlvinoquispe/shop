@@ -12,6 +12,7 @@ const Header = () => {
   const { cardProducts } = useContext(CardContext);
 
 	const [isVisible, setState] = useState(false);
+	
 
   return (
 		<header>
@@ -27,7 +28,7 @@ const Header = () => {
 						<Link to="/">Productos</Link>
 					</div>
 
-					<div className="shopping menu-shop cart-shop" onMouseEnter={() => setState(true)}>
+					<div className="shopping" onClick={() => !isVisible ?  setState(true) : setState(false)}>
 						<img src={IconShopping} alt="icono de compra"></img>
 						<span className="shopping-counter">{ cardProducts.length}</span>
 					</div>

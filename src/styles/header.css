@@ -58,6 +58,7 @@ header hr {
 }
 
 .shopping {
+  cursor: pointer;
   justify-self: flex-end;
   position: relative;
   margin-right: 15px;
